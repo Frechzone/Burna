@@ -27,10 +27,6 @@ const songs = [
 ];
 let songIndex = 0;
 
-if (localStorage.getItem('songIndex')) {
-  songIndex = parseInt(localStorage.getItem('songIndex'));
-}
-
 loadSong(songs[songIndex]);
 
 function loadSong(song) {
@@ -91,8 +87,6 @@ function setProgress(e) {
   audio.currentTime = (clickX / width) * duration;
 }
 
-window.addEventListener('load', playSong);
-
 playBtn.addEventListener('click', () => {
   const isPlaying = musicContainer.classList.contains('play');
 
@@ -108,9 +102,7 @@ nextBtn.addEventListener('click', nextSong);
 audio.addEventListener('timeupdate', updateProgress);
 progressContainer.addEventListener('click', setProgress);
 
-audio.addEventListener('ended', () => {
-  nextSong();
-});
+audio.pause();
 
 function saveSongIndex() {
   localStorage.setItem('songIndex', songIndex.toString());
