@@ -33,6 +33,7 @@ function loadSong(song) {
   title.innerText = song;
   audio.src = `music/${song}.mp3`;
   cover.src = 'images/burna.jpg';
+  progress.style.width = '0%';
 }
 
 function playSong() {
@@ -104,6 +105,7 @@ progressContainer.addEventListener('click', setProgress);
 
 audio.pause();
 
+es
 function saveSongIndex() {
   localStorage.setItem('songIndex', songIndex.toString());
 }
