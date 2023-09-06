@@ -103,9 +103,10 @@ nextBtn.addEventListener('click', nextSong);
 audio.addEventListener('timeupdate', updateProgress);
 progressContainer.addEventListener('click', setProgress);
 
+audio.addEventListener('ended', nextSong);
+
 audio.pause();
 
-es
 function saveSongIndex() {
   localStorage.setItem('songIndex', songIndex.toString());
 }
